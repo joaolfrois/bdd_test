@@ -1,23 +1,25 @@
-import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { MainPage } from './app.po';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
 
-  beforeEach(() => {
-    page = new AppPage();
+describe('Main Page', () => {
+  let page: MainPage;
+
+  beforeEach(()=> {
+    page = new MainPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('bddTestModel app is running!');
+  it('Should display the button text before click', () => {
+      page.navigateTo();
+      expect(page.getButtonText()).toEqual('Show Alert');
   });
 
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
+  it('Should change the button text after click', () => {
+      page.navigateTo();
+
+      const buttonText = page.getButtonText();
+      page.getButton().click();
+      const buttonTextAfter = page.getButtonText();
+
+      expect(buttonText === buttonTextAfter).toBe(false);
   });
 });
