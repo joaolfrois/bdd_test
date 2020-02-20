@@ -1,13 +1,12 @@
 exports.config = {
-  seleniumAddress: 'http://localhost:4723/wd/hub',
+  //seleniumAddress: 'http://localhost:4444/wd/hub',
+
+  directConnect: true,
 
   specs: ['src/features/**/*.feature'],
 
   capabilities: {
     browserName: 'chrome',
-    platformName: 'Android',
-    platformVersion: '10.0',
-    deviceName: 'Android Emulator'
 
   },
   
@@ -19,6 +18,12 @@ exports.config = {
   },
 
   framework: 'custom',
-  frameworkPath: require.resolve('protractor-cucumber-framework')
+  frameworkPath: require.resolve('protractor-cucumber-framework'),
+
+  onPrepare() {
+    require('ts-node').register({
+      project: require('path').join(__dirname, './tsconfig.json')
+    });
+  }
 };
 
