@@ -9,9 +9,6 @@ exports.config = {
     browserName: 'chrome',
 
   },
-  
-
-  baseUrl: 'http://10.0.2.2:8000',
 
   cucumberOpts: {
     require: ['./src/steps/**/*.steps.ts'],
