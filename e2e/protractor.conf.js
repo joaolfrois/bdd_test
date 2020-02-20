@@ -18,7 +18,9 @@ exports.config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'),
 
   onPrepare() {
-    require('ts-node/register');
+    require('ts-node').register({
+      project: require('path').join(__dirname, './tsconfig.json')
+    });
   }
 };
 
