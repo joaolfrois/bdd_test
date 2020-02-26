@@ -7,11 +7,18 @@ exports.config = {
   specs: ['src/features/**/*.feature'],
 
   capabilities: {
-    browserName: 'chrome',
-    platformName: 'Android',
-    platformVersion: '10.0',
-    deviceName: 'Android Emulator'
+    deviceName: 'Nexus 5X API 29',
+    browserName: '',
+    autoWebview: true,
+    autoWebviewTimeout: 20000,
+    udid: "emulator-5554",
+    platformName: "Android",
+    platformVersion: "10.0",
+    appPackage: "com.example.bdd_test",
+    appActivity: "MainActivity",
+    ensureWebviewsHavePages: true
   },
+
   baseUrl: 'http://10.0.2.2:8000',
 
   cucumberOpts: {

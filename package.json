@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "ng e2e --no-webdriver-update",
     "device-test": "ng serve --host=0.0.0.0 --disableHostCheck true --base-href / --open "
   },
   "private": true,
